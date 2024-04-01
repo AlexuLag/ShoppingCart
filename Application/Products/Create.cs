@@ -2,13 +2,13 @@
 using MediatR;
 using Persistence;
 
-namespace Application;
+namespace Application.Products;
 
 public class Create
 {
     public class Command : IRequest<Result <Unit>>
     {
-        public Product Product  { get; set; }
+        public Domain.Product Product  { get; set; }
     }
 
     public class Handler : IRequestHandler<Command, Result<Unit>>
