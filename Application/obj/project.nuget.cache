@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "4nxI9EA5irFm0nj2Ful/+kC+y0K0BIwe9nFsYI+0lLQqc3KBb75m6qWNI1EmlBwOhHa7JfnQEC8Hf26w+KggXA==",
+  "dgSpecHash": "KAErPuY8NjMX6CjkkK3OgvPpTAzBfK2CMQCSLEkrH8Zx3r9KoVpgtwjn/DtvU6WIl/fENTxSMqhZLbUGOxjAOQ==",
   "success": true,
   "projectFilePath": "D:\\ShoppingCart\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.5\\microsoft.data.sqlclient.5.1.5.nupkg.sha512",

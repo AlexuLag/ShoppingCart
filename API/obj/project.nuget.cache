@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "Zpw+ZpEkAtcWIjqi3snX5B/zBZSftpVKjXMd9IL/CRXkMGQwANjJn6rTRwZ1BYp84PkvyVOv24JnO9/42g7w+w==",
+  "dgSpecHash": "IG30gcscI67lwi2+iiMRS3pHq7nfgKhbWaKHcQvR1G1CY6cgV7R80zW251vmfdEKegNYUxXl8lPPIv7ir743hA==",
   "success": true,
-  "projectFilePath": "D:\\ShoppingCart\\api\\API.csproj",
+  "projectFilePath": "D:\\ShoppingCart\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.2\\microsoft.aspnetcore.openapi.8.0.2.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",

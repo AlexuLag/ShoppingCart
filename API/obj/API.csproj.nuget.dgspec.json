@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ShoppingCart\\api\\API.csproj": {}
+    "D:\\ShoppingCart\\API\\API.csproj": {}
   },
   "projects": {
-    "D:\\ShoppingCart\\api\\API.csproj": {
+    "D:\\ShoppingCart\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ShoppingCart\\api\\API.csproj",
+        "projectUniqueName": "D:\\ShoppingCart\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\ShoppingCart\\api\\API.csproj",
+        "projectPath": "D:\\ShoppingCart\\API\\API.csproj",
         "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-        "outputPath": "D:\\ShoppingCart\\api\\obj\\",
+        "outputPath": "D:\\ShoppingCart\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -134,6 +134,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
