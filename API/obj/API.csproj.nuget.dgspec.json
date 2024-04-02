@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ShoppingCart\\API\\API.csproj": {}
+    "D:\\ShoppingCart\\api\\API.csproj": {}
   },
   "projects": {
-    "D:\\ShoppingCart\\API\\API.csproj": {
+    "D:\\ShoppingCart\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ShoppingCart\\API\\API.csproj",
+        "projectUniqueName": "D:\\ShoppingCart\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\ShoppingCart\\API\\API.csproj",
+        "projectPath": "D:\\ShoppingCart\\api\\API.csproj",
         "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-        "outputPath": "D:\\ShoppingCart\\API\\obj\\",
+        "outputPath": "D:\\ShoppingCart\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",

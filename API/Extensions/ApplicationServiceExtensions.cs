@@ -1,5 +1,4 @@
 ﻿using Application;
-using Application.Product;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
@@ -24,7 +23,7 @@ public static class ApplicationServiceExtensions
         });
 
 
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Select.Handler).Assembly));
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Application.Products.Select).Assembly));
 
 
         return services;
