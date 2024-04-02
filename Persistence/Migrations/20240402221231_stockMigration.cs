@@ -88,21 +88,21 @@ namespace Persistence.Migrations
                 {
                     table.PrimaryKey("PK_ProductCategories", x => new { x.ProductId, x.CategoryId });
                     table.ForeignKey(
-                        name: "FK_ProductCategories_Categories_ProductId",
-                        column: x => x.ProductId,
+                        name: "FK_ProductCategories_Categories_CategoryId",
+                        column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProductCategories_Products_CategoryId",
-                        column: x => x.CategoryId,
+                        name: "FK_ProductCategories_Products_ProductId",
+                        column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductsStock",
+                name: "ProductStock",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -112,9 +112,9 @@ namespace Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductsStock", x => x.Id);
+                    table.PrimaryKey("PK_ProductStock", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProductsStock_Products_ProductId",
+                        name: "FK_ProductStock_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
@@ -170,8 +170,8 @@ namespace Persistence.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductsStock_ProductId",
-                table: "ProductsStock",
+                name: "IX_ProductStock_ProductId",
+                table: "ProductStock",
                 column: "ProductId",
                 unique: true);
         }
@@ -186,7 +186,7 @@ namespace Persistence.Migrations
                 name: "ProductCategories");
 
             migrationBuilder.DropTable(
-                name: "ProductsStock");
+                name: "ProductStock");
 
             migrationBuilder.DropTable(
                 name: "Orders");

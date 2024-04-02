@@ -175,7 +175,7 @@ namespace Persistence.Migrations
                     b.HasIndex("ProductId")
                         .IsUnique();
 
-                    b.ToTable("ProductsStock");
+                    b.ToTable("ProductStock");
                 });
 
             modelBuilder.Entity("Domain.Order", b =>
@@ -210,14 +210,14 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.ProductCategory", b =>
                 {
-                    b.HasOne("Domain.Product", "Product")
-                        .WithMany("Categories")
+                    b.HasOne("Domain.Category", "Category")
+                        .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Category", "Category")
-                        .WithMany("Products")
+                    b.HasOne("Domain.Product", "Product")
+                        .WithMany("Categories")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

@@ -18,8 +18,7 @@ public class DataContext : DbContext
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderDetail> OrderDetails { get; set; }
     public DbSet<Customer> Customers { get; set; }
-
-    public DbSet<ProductStock> ProductsStock { get; set; }
+    public DbSet<ProductStock> ProductStock { get; set; }
 
 
 
@@ -34,13 +33,13 @@ public class DataContext : DbContext
         modelBuilder.Entity<ProductCategory>()
             .HasOne(pc => pc.Product)
             .WithMany(p => p.Categories)
-            .HasForeignKey(pc => pc.CategoryId);
+            .HasForeignKey(pc => pc.ProductId);
 
         //foreign key configuration for category in product category
         modelBuilder.Entity<ProductCategory>()
             .HasOne(pc => pc.Category)
             .WithMany(c => c.Products)
-            .HasForeignKey(pc => pc.ProductId);
+            .HasForeignKey(pc => pc.CategoryId);
 
         //foreign key between orders and customers
         modelBuilder.Entity<Order>()

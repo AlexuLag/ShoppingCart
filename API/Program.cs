@@ -1,4 +1,5 @@
 using API;
+using API.Middleware;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
@@ -10,6 +11,8 @@ builder.Services.AddAplicationServices(builder.Configuration);
 
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

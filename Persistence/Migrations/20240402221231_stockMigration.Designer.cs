@@ -12,7 +12,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240402170107_stockMigration")]
+    [Migration("20240402221231_stockMigration")]
     partial class stockMigration
     {
         /// <inheritdoc />
@@ -178,7 +178,7 @@ namespace Persistence.Migrations
                     b.HasIndex("ProductId")
                         .IsUnique();
 
-                    b.ToTable("ProductsStock");
+                    b.ToTable("ProductStock");
                 });
 
             modelBuilder.Entity("Domain.Order", b =>
@@ -213,14 +213,14 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.ProductCategory", b =>
                 {
-                    b.HasOne("Domain.Product", "Product")
-                        .WithMany("Categories")
+                    b.HasOne("Domain.Category", "Category")
+                        .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Category", "Category")
-                        .WithMany("Products")
+                    b.HasOne("Domain.Product", "Product")
+                        .WithMany("Categories")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
