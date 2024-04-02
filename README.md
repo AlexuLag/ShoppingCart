@@ -18,3 +18,5 @@ In this repository you will find the implementation of a basic shopping cart usi
 #### Semantic UI React
 
 This project uses Vite, and sqlserver as Database
+
+for debug ....
