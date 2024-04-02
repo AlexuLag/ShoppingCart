@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "k7qXtU7oFn7/hSfBdSto9e9wJV4KxOzlR1kBN3Y3WKkBPkYmA7Qvd8uKHrSXraR+ZZAmLIu5Y/UCOrgtJ2UyWw==",
+  "dgSpecHash": "IG30gcscI67lwi2+iiMRS3pHq7nfgKhbWaKHcQvR1G1CY6cgV7R80zW251vmfdEKegNYUxXl8lPPIv7ir743hA==",
   "success": true,
-  "projectFilePath": "D:\\ShoppingCart\\api\\API.csproj",
+  "projectFilePath": "D:\\ShoppingCart\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\alexa\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

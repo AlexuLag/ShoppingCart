@@ -15,11 +15,11 @@ public class DataContext : DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<ProductCategory> ProductCategories { get; set; }
-
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderDetail> OrderDetails { get; set; }
-
     public DbSet<Customer> Customers { get; set; }
+
+    public DbSet<ProductStock> ProductsStock { get; set; }
 
 
 
@@ -60,6 +60,12 @@ public class DataContext : DbContext
             .HasOne(od => od.Product)
             .WithMany(p => p.OrderDetails)
             .HasForeignKey(od => od.ProductId);
+
+       //foreign key between product and product stock
+        modelBuilder.Entity<Product>()
+    .HasOne(p => p.ProductStock)
+    .WithOne(ps => ps.Product)
+    .HasForeignKey<ProductStock>(ps => ps.ProductId);
 
 
 

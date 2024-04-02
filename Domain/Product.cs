@@ -12,5 +12,6 @@ public string ImageUrl { get; set; }
 public ICollection<ProductCategory> Categories { get; set; }
 
 public ICollection<OrderDetail> OrderDetails { get; set; }
+public ProductStock ProductStock { get; set; }
 
 }

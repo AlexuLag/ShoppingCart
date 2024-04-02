@@ -12,8 +12,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240402161851_initialMigration")]
-    partial class initialMigration
+    [Migration("20240402170107_stockMigration")]
+    partial class stockMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -159,6 +159,28 @@ namespace Persistence.Migrations
                     b.ToTable("ProductCategories");
                 });
 
+            modelBuilder.Entity("Domain.ProductStock", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId")
+                        .IsUnique();
+
+                    b.ToTable("ProductsStock");
+                });
+
             modelBuilder.Entity("Domain.Order", b =>
                 {
                     b.HasOne("Domain.Customer", "Customer")
@@ -208,6 +230,17 @@ namespace Persistence.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Domain.ProductStock", b =>
+                {
+                    b.HasOne("Domain.Product", "Product")
+                        .WithOne("ProductStock")
+                        .HasForeignKey("Domain.ProductStock", "ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Domain.Category", b =>
                 {
                     b.Navigation("Products");
@@ -228,6 +261,8 @@ namespace Persistence.Migrations
                     b.Navigation("Categories");
 
                     b.Navigation("OrderDetails");
+
+                    b.Navigation("ProductStock");
                 });
 #pragma warning restore 612, 618
         }
