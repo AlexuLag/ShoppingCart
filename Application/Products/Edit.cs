@@ -35,7 +35,7 @@ public class Edit
         {
             var product = await _context.Products.FindAsync(request.Product.Id);
             if (product == null) return null;
-            _mapper.Map(request.Product, product);
+            _mapper.Map(request.Product,product);            
 
             var result = await _context.SaveChangesAsync() > 0;
             if (!result) return Result<Unit>.Failure("Failed to update the product");
