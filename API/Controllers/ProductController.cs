@@ -16,9 +16,9 @@ public class ProductController: BaseApiController
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<Product>>>  GetProducts()
+    public async Task<ActionResult<List<Product>>>  GetProducts([FromQuery] PagingParams param )
     {
-            return HandleResult(await Mediator.Send(new Select.Query()));
+            return HandlePageResult(await Mediator.Send(new Select.Query{Params = param} ));
     }
 
     [HttpGet("{id}")]

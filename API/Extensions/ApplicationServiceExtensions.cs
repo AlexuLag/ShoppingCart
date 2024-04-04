@@ -23,11 +23,10 @@ public static class ApplicationServiceExtensions
                 policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
             });
         });
-
-
+        
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Application.Products.Select).Assembly));
         services.AddAutoMapper(typeof(MappingProfiles).Assembly);
-        
+
         services.AddFluentValidationAutoValidation();
         services.AddValidatorsFromAssemblyContaining<Application.Products.Create>();
 

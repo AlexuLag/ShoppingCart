@@ -10,8 +10,7 @@ public double UnitPrice { get; set; }
 public string ImageUrl { get; set; }
 
 public ICollection<ProductCategory> Categories { get; set; }
-
 public ICollection<OrderDetail> OrderDetails { get; set; }
-public ProductStock ProductStock { get; set; }
+public ICollection<ProductStock> ProductStock { get; set; }
 
 }

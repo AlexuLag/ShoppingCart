@@ -10,6 +10,7 @@ public class DataContext : DbContext
 {
     public DataContext(DbContextOptions options) : base(options)
     {
+      
     }
 
     public DbSet<Product> Products { get; set; }
@@ -24,7 +25,6 @@ public class DataContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<ProductCategory>(x => x.HasKey(pc => new { pc.ProductId, pc.CategoryId }));
@@ -62,9 +62,9 @@ public class DataContext : DbContext
 
        //foreign key between product and product stock
         modelBuilder.Entity<Product>()
-    .HasOne(p => p.ProductStock)
-    .WithOne(ps => ps.Product)
-    .HasForeignKey<ProductStock>(ps => ps.ProductId);
+            .HasMany(p => p.ProductStock)
+            .WithOne(ps => ps.Product)
+            .HasForeignKey(ps => ps.ProductId);
 
 
 

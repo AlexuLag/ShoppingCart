@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using API;
 using API.Middleware;
 using Microsoft.EntityFrameworkCore;
