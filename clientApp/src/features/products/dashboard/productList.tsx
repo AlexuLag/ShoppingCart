@@ -7,7 +7,7 @@ import { observer } from 'mobx-react-lite';
 export default   observer(function productList() {
 
 
-    const { productStore } = useStore();
+    const { productStore,cartStore } = useStore();
     const { products } = productStore;
 
     
@@ -77,6 +77,8 @@ export default   observer(function productList() {
                                 color='blue'
                                 label={product.quantity ?? 0}
                                 labelPosition='left'
+                                onClick={ ()=> cartStore.addProductToCart(product,product.quantity) }
+                               
                                 />
 
                             

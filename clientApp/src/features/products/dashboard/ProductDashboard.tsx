@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import LoadingComponent from '../../../app/layout/LoadingComponent';
 import ProductList from './productList';
-import Cart from './Cart';
 import { PagingParams } from '../../../app/models/pagination';
+import CartDashboard from './CartDashboard';
 
 
 
@@ -40,7 +40,7 @@ export default observer(function productDashboard() {
   return (
     <Container style={{ marginTop: '7em' }}>
       <Grid>
-        <Grid.Column width='12'>
+        <Grid.Column width='11'>
           <ProductList />
          
           <Label  size="medium">
@@ -74,8 +74,8 @@ export default observer(function productDashboard() {
         
         </Grid.Column>
 
-        <Grid.Column width='4'>
-          <Cart />
+        <Grid.Column width='5'>
+           <CartDashboard/>
         </Grid.Column>
 
       </Grid>
