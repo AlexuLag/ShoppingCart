@@ -174,8 +174,7 @@ namespace Persistence.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_ProductStock_ProductId",
                 table: "ProductStock",
-                column: "ProductId",
-                unique: true);
+                column: "ProductId");
         }
 
         /// <inheritdoc />
