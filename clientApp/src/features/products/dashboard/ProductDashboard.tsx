@@ -5,7 +5,7 @@ import { observer } from 'mobx-react-lite';
 import LoadingComponent from '../../../app/layout/LoadingComponent';
 import ProductList from './productList';
 import { PagingParams } from '../../../app/models/pagination';
-import CartDashboard from './CartDashboard';
+
 
 
 
@@ -13,7 +13,7 @@ import CartDashboard from './CartDashboard';
 
 export default observer(function productDashboard() {
 
-  const { productStore } = useStore();
+  const { productStore,cartStore} = useStore();
   const { loadProducts, loadingInitial, SetPagingParams, pagination } = productStore;
 
   const [loadingNext, setLoadingNext] = useState(false)
@@ -21,17 +21,20 @@ export default observer(function productDashboard() {
   function handleGetNext() {
     setLoadingNext(true);
     SetPagingParams(new PagingParams(pagination!.currentPage + 1))
-    loadProducts().then(() => setLoadingNext(false))
+    loadProducts().then(() => setLoadingNext(false)).then(  () =>cartStore.updateProductStockFromCart(productStore.products));
   }
 
   function handleGetPrev() {
     setLoadingNext(true);
     SetPagingParams(new PagingParams(pagination!.currentPage -1))
-    loadProducts().then(() => setLoadingNext(false))
+    loadProducts().then(() => setLoadingNext(false)).then(  () =>cartStore.updateProductStockFromCart(productStore.products));
   }
 
+  
   useEffect(() => {
-    loadProducts();
+    loadProducts().then(  () =>cartStore.updateProductStockFromCart(productStore.products));
+   
+
   }, [loadProducts])
 
 
@@ -40,7 +43,7 @@ export default observer(function productDashboard() {
   return (
     <Container style={{ marginTop: '7em' }}>
       <Grid>
-        <Grid.Column width='11'>
+        <Grid.Column width='16'>
           <ProductList />
          
           <Label  size="medium">
@@ -74,9 +77,7 @@ export default observer(function productDashboard() {
         
         </Grid.Column>
 
-        <Grid.Column width='5'>
-           <CartDashboard/>
-        </Grid.Column>
+       
 
       </Grid>
     </Container>
