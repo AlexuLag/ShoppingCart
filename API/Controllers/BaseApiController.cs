@@ -9,12 +9,20 @@ namespace API.Controllers;
 [Route("api/[controller]")]
 public class BaseApiController : ControllerBase
 {
+
     private IMediator _mediator;
+
 
     protected IMediator Mediator => _mediator ??=
         HttpContext.RequestServices.GetService<IMediator>();
 
-    protected ActionResult HandleResult<T>(Result<T> result)
+/// <summary>
+/// receives an action result of type TDto, to catch the response and return it to the client with http response
+/// </summary>
+/// <typeparam name="TDto"> dto object returned</typeparam>
+/// <param name="result"> result object with the dto inside, if an error occours IsSuccess is false and result .value is null</param>
+/// <returns></returns>
+    protected ActionResult HandleResult<TDto>(Result<TDto> result)
     {
         if (result == null) return NotFound();
         if (result.IsSuccess && result.Value != null)
@@ -23,8 +31,13 @@ public class BaseApiController : ControllerBase
             return NotFound();
         return BadRequest(result.Error);
     }
-
-    protected ActionResult HandlePageResult<T>(Result<PagedList<T>> result)
+/// <summary>
+/// abstraction for manage pagination, receive a TEntity, and add to the Response object a header with the page info
+/// </summary>
+/// <typeparam name="TEntity"> objects that represents an entity or a DTO</typeparam>
+/// <param name="result"></param>
+/// <returns></returns>
+    protected ActionResult HandlePageResult<TEntity>(Result<PagedList<TEntity>> result)
     {
         if (result == null) return NotFound();
         if (result.IsSuccess && result.Value != null)

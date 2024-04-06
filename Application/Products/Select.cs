@@ -26,18 +26,11 @@ public class Select
             _mapper = mapper;
         }
         public async Task<Result<PagedList<ProductDto>>> Handle(Query request, CancellationToken cancellationToken)
-        {
-           /* var query =  _context.Products
-                    .Include(c => c.Categories)
-                    .ThenInclude(ct => ct.Category)
-                    .Include(st=>st.ProductStock)
-                    .AsQueryable();*/
-
+        {         
             var query  =  _context.Products
                     .ProjectTo<ProductDto>(_mapper.ConfigurationProvider)
                     .AsQueryable();
 
-           // var productsToReturn  = _mapper.Map<List<ProductDto>>(products);
             return Result<PagedList<ProductDto>>.Success(
                     await PagedList<ProductDto>.CreateAsync(query,
                                                             request.Params.pageNumber,

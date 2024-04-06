@@ -6,6 +6,7 @@ using Persistence;
 
 namespace API.Controllers;
 
+//base api controller allow to use common abstractions on each controller
 public class ProductController: BaseApiController
 {
     private readonly DataContext _context;

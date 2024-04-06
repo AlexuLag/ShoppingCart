@@ -22,12 +22,12 @@ public class Create
 
     public class Handler : IRequestHandler<Command, Result<Unit>>
     {
+          private readonly DataContext _context;
          public Handler(DataContext context)
         {
             _context = context;
         }
-
-        private readonly DataContext _context;
+      
 
         public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
         {            

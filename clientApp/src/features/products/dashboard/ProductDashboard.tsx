@@ -13,7 +13,7 @@ import { PagingParams } from '../../../app/models/pagination';
 
 export default observer(function productDashboard() {
 
-  const { productStore,cartStore} = useStore();
+  const { productStore, cartStore } = useStore();
   const { loadProducts, loadingInitial, SetPagingParams, pagination } = productStore;
 
   const [loadingNext, setLoadingNext] = useState(false)
@@ -21,19 +21,21 @@ export default observer(function productDashboard() {
   function handleGetNext() {
     setLoadingNext(true);
     SetPagingParams(new PagingParams(pagination!.currentPage + 1))
-    loadProducts().then(() => setLoadingNext(false)).then(  () =>cartStore.updateProductStockFromCart(productStore.products));
+    loadProducts().then(() => setLoadingNext(false)).then(() => cartStore.updateProductStockFromCart(productStore.products));
   }
 
   function handleGetPrev() {
     setLoadingNext(true);
-    SetPagingParams(new PagingParams(pagination!.currentPage -1))
-    loadProducts().then(() => setLoadingNext(false)).then(  () =>cartStore.updateProductStockFromCart(productStore.products));
+    SetPagingParams(new PagingParams(pagination!.currentPage - 1))
+    loadProducts().then(() => setLoadingNext(false)).then(() => cartStore.updateProductStockFromCart(productStore.products));
   }
 
-  
+
   useEffect(() => {
-    loadProducts().then(  () =>cartStore.updateProductStockFromCart(productStore.products));
-   
+    loadProducts()
+      .then(()=> cartStore.loadCartFromStorage()) 
+      .then(() => cartStore.updateProductStockFromCart(productStore.products));
+
 
   }, [loadProducts])
 
@@ -45,39 +47,39 @@ export default observer(function productDashboard() {
       <Grid>
         <Grid.Column width='16'>
           <ProductList />
-         
-          <Label  size="medium">
-          <Button
-          size='mini'
-            floated='right'
-            icon='long arrow alternate right'
-            
-              color= 'grey'
-            onClick={handleGetNext}
-            loading={loadingNext}
-            disabled={pagination?.totalPages===pagination?.currentPage}>
 
-          </Button>
-             Page {pagination?.currentPage} of {pagination?.totalPages}
-           
-          <Button
-           size='mini'
-            floated='left'
-            icon='long arrow alternate left'
-            
-            color= 'grey'        
-            onClick={handleGetPrev}
-            loading={loadingNext}
-            disabled={(pagination?.currentPage??0)==1}>
-              
-              
+          <Label size="medium">
+            <Button
+              size='mini'
+              floated='right'
+              icon='long arrow alternate right'
 
-          </Button>
-        </Label>
-        
+              color='grey'
+              onClick={handleGetNext}
+              loading={loadingNext}
+              disabled={pagination?.totalPages === pagination?.currentPage}>
+
+            </Button>
+            Page {pagination?.currentPage} of {pagination?.totalPages}
+
+            <Button
+              size='mini'
+              floated='left'
+              icon='long arrow alternate left'
+
+              color='grey'
+              onClick={handleGetPrev}
+              loading={loadingNext}
+              disabled={(pagination?.currentPage ?? 0) == 1}>
+
+
+
+            </Button>
+          </Label>
+
         </Grid.Column>
 
-       
+
 
       </Grid>
     </Container>

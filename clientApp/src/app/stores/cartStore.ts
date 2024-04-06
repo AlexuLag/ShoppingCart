@@ -19,6 +19,9 @@ export default class CartStore {
         product.stock =  product.stock -ammount;
         product.quantity = 0;
         this.getTotalPrice();
+        //add store to local storage using localstorage 
+        localStorage.setItem('cart',JSON.stringify(this) )   
+
     }
 
     removeProductFromCart  = (cart: Cart)=>{
@@ -27,16 +30,19 @@ export default class CartStore {
         cart.product.stock = cart.product.stock +cart.quantity
         this.totalProducts= this.totalProducts -cart.quantity;
         this.getTotalPrice();
+        //add store to local storage using localstorage  
+        localStorage.setItem('cart',JSON.stringify(this) )   
     }
 
     updateProductStockFromCart=(products : Product[])=>{
-      products.forEach(p=> {
+        //load first from local storage, cart state and then continue with operation
+     
+        products.forEach(p=> {
             const quantity  = this.productsInCart.find(x =>x.product.id ==p.id)?.quantity            
             if (quantity!= undefined)
                 p.stock =   p.stock - quantity
         })
         this.getTotalPrice();
-
   
 
     }
@@ -48,6 +54,18 @@ export default class CartStore {
                 this.totalPrice+= e.quantity*e.product.unitPrice
             }
         )
+
+    }
+
+    loadCartFromStorage =()=>{
+        var  cartFromStorage = localStorage.getItem('cart')
+        if( cartFromStorage!=null)
+        {
+            var cart  = JSON.parse(cartFromStorage) as CartStore
+            this.productsInCart = cart.productsInCart
+            this.totalProducts = cart.totalProducts 
+        }
+
 
     }
 

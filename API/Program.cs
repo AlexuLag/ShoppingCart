@@ -7,12 +7,11 @@ using Persistence;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+//extension method to inject serrvices 
 builder.Services.AddAplicationServices(builder.Configuration);
 
-
-
 var app = builder.Build();
-
+//middleware for catch exceptions
 app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
@@ -28,6 +27,8 @@ app.MapControllers();
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
 
+
+//seed and migration to database when database run for first time
 try
 {
     var context = services.GetRequiredService<DataContext>();
