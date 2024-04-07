@@ -4,6 +4,12 @@ import ProductDashboard from "../../features/products/dashboard/ProductDashboard
 
 
 import CartDashboard from "../../features/products/dashboard/CartDashboard";
+import OrderDashboard from "../../features/orders/OrderDashboard";
+
+
+
+
+
 
 export const routes: RouteObject[] = [
     {
@@ -11,7 +17,8 @@ export const routes: RouteObject[] = [
         element : <App/>,
         children: [
             {path: 'products', element : <ProductDashboard/>},
-            {path: 'cart', element : <CartDashboard/>}
+            {path: 'cart', element : <CartDashboard/>},
+            {path: 'orders', element : <OrderDashboard/>}
            
           
         ]

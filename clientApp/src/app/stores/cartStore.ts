@@ -95,5 +95,4 @@ export default class CartStore {
             localStorage.setItem('cart',JSON.stringify(this) )   
            
     }
-
 }

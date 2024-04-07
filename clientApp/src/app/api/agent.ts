@@ -1,7 +1,6 @@
 import axios, {  AxiosResponse } from "axios";
 import { Product } from "../models/product";
 import { PaginatedResult } from "../models/pagination";
-import { CartItem } from "../models/cartItem";
 import { Cart } from "../models/cart";
 
 axios.defaults.baseURL = 'http://localhost:5000/api'
@@ -39,7 +38,9 @@ const Products = {
 
 const Orders = {
     create: (cart : Cart) => requests.post<void>('/Order', cart),
+    list: (userId: number) => requests.get<Cart[]>(`/Order/${userId}`)
 }
+
 
 const agent = {
     Products,

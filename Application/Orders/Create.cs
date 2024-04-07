@@ -48,7 +48,7 @@ public class Create
                     //updates stock status for each product on the order
                     var productsWithStock = _context.ProductStock.Where(p => p.ProductId == x.Product.Id && 
                                                                              p.Status.Equals("S") )
-                                                                 .Take(x.Quantity);
+                                                                 .Take(Convert.ToInt32(x.Quantity));
                         foreach (var item in productsWithStock)
                         {
                             item.Status = "O";
