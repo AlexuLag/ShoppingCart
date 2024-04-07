@@ -64,10 +64,6 @@ export default class ProductStore {
     }
 
 
-    private setProduct = (product: Product) => {
-        this.products.push(product);
-    }
-
     
     setLoadingInitial = (state: boolean) => {
         this.loadingInitial = state;

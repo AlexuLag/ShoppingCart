@@ -3,8 +3,9 @@ import { useStore } from '../../../app/stores/store';
 import { useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import LoadingComponent from '../../../app/layout/LoadingComponent';
-import ProductList from './productList';
+
 import { PagingParams } from '../../../app/models/pagination';
+import ProductList from './ProductList';
 
 
 

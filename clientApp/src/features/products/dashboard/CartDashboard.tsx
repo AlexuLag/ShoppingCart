@@ -30,7 +30,7 @@ export default observer(function CartDashboard() {
 
             <TableBody>
               {productsInCart.map((p) => (
-                <TableRow>
+                <TableRow key={p.product.id}>
                   <TableCell width={8}>
                     <Header as='h4' >
                       <Image src={p.product.imageUrl} rounded size='mini' />
@@ -83,7 +83,7 @@ export default observer(function CartDashboard() {
                         Total ammount   : $  {cartStore.totalPrice}
                       </Item.Description>
                       <Divider  />
-                      <Button content='Process Order'  icon='right arrow' labelPosition='right' color='blue'  disabled={cartStore.totalPrice==0} />
+                      <Button content='Process Order'  icon='right arrow' labelPosition='right' color='blue'  disabled={cartStore.totalPrice==0} onClick={()=>{cartStore.createOrder()}} />
 
                     </Item.Content>
                   </Item>

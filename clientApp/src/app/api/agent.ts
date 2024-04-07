@@ -1,6 +1,7 @@
 import axios, {  AxiosResponse } from "axios";
 import { Product } from "../models/product";
 import { PaginatedResult } from "../models/pagination";
+import { Cart } from "../models/cart";
 
 axios.defaults.baseURL = 'http://localhost:5000/api'
 
@@ -35,8 +36,13 @@ const Products = {
 
 }
 
+const Orders = {
+    create: (cart:Cart[]) => requests.post<void>('/Order', cart),
+}
+
 const agent = {
-    Products 
+    Products,
+    Orders
 }
 
 export default agent;

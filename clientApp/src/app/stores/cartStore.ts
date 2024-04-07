@@ -1,6 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import { Cart } from "../models/cart";
 import { Product } from "../models/product";
+import agent from "../api/agent";
 
 export default class CartStore {
 
@@ -14,7 +15,12 @@ export default class CartStore {
     }
 
     addProductToCart = (product: Product, ammount: number) => {
-        this.productsInCart.push(new Cart(product, ammount));
+
+        var existsProduct =  this.productsInCart.find(p=> p.product.id==product.id);
+        if (existsProduct!=null)      
+            existsProduct.quantity+=ammount
+        else      
+            this.productsInCart.push(new Cart(product, ammount));
         this.totalProducts= this.totalProducts +ammount;
         product.stock =  product.stock -ammount;
         product.quantity = 0;
@@ -66,9 +72,10 @@ export default class CartStore {
             this.totalProducts = cart.totalProducts 
         }
 
-
     }
 
-
+    createOrder = ()=>{
+        agent.Orders.create(this.productsInCart)
+    }
 
 }
