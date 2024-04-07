@@ -8,4 +8,8 @@ public class OrderDto
  public int UserId { get; set; }
 
  public int id { get; set; }
+ public string OrderDate { get; set; }
+
+ public double  TotalInvoice { get; set; }
+public double TotalProducts { get; set; }
 }

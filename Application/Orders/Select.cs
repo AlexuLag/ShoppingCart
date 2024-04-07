@@ -46,8 +46,13 @@ public class Select
             {
                 var itemDto = new OrderDto();
                 itemDto.id = item.Id;
-                itemDto.UserId = item.Customer.Id;                
+                itemDto.UserId = item.Customer.Id;         
+                itemDto.OrderDate = item.Date.ToShortDateString();       
                 itemDto.Items = new List<OrderDetailDto>();
+                itemDto.TotalProducts  = item.OrderDetails.Sum(x=>x.Quantity);
+                itemDto.TotalInvoice = item.OrderDetails.Sum(x=>x.TotalPrice);
+
+
 
                 foreach (var det in item.OrderDetails)
                 {
