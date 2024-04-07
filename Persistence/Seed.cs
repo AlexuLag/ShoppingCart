@@ -104,6 +104,56 @@ public class Seed
                      UnitPrice = 5,
                      ImageUrl = "/assets/productImages/Ipad.png"
                 },
+                 new Product {
+                     Code = "00011",
+                     Name = "Samsung Tablet",
+                     Description = "tablet for work and school",
+                     UnitPrice = 100,
+                     ImageUrl = "/assets/productImages/samsung.png"
+                },
+                     new Product {
+                     Code = "00012",
+                     Name = "Logitech mx mouse",
+                     Description = "mouse for gaming with 17000 dpi",
+                     UnitPrice = 100,
+                     ImageUrl = "/assets/productImages/mouse.png"
+                },
+                  new Product {
+                     Code = "00013",
+                     Name = "PS4 Console",
+                     Description = "Ps4 Console, with one control",
+                     UnitPrice = 100,
+                     ImageUrl = "/assets/productImages/ps4.png"
+                },
+                  new Product {
+                     Code = "00014",
+                     Name = "PS5 Console",
+                     Description = "Ps5 Console, with one control",
+                     UnitPrice = 100,
+                     ImageUrl = "/assets/productImages/ps5.png"
+                },
+                   new Product {
+                     Code = "00015",
+                     Name = "xbox one ",
+                     Description = "xbox Console, with one control",
+                     UnitPrice = 100,
+                     ImageUrl = "/assets/productImages/xboxone.png"
+                },
+                  new Product {
+                     Code = "00015",
+                     Name = "xbox one series x ",
+                     Description = "xbox Console, with one control",
+                     UnitPrice = 100,
+                     ImageUrl = "/assets/productImages/xboxonex.png"
+                },
+                 new Product {
+                     Code = "00015",
+                     Name = "xbox one series s ",
+                     Description = "xbox Console, with one control",
+                     UnitPrice = 100,
+                     ImageUrl = "/assets/productImages/xboxones.png"
+                },
+
 
 
 
