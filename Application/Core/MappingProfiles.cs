@@ -10,7 +10,7 @@ public class MappingProfiles:Profile
         CreateMap<Product,Product>();
         CreateMap<Product,ProductDto>()
            .ForMember(d=>d.Categories,o=>o.MapFrom( s=>s.Categories))
-           .ForMember(d=>d.stock,o=>o.MapFrom( s=>s.ProductStock.Count));
+           .ForMember(d=>d.stock,o=>o.MapFrom( s=>s.ProductStock.Count(a=> a.Status=="S") ));
         
         CreateMap<ProductCategory,CategoryDto>()
             .ForMember(d=>d.Id , o => o.MapFrom(s=>s.Category.Id))

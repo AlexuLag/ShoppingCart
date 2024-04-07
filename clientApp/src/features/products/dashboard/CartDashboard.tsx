@@ -83,7 +83,7 @@ export default observer(function CartDashboard() {
                         Total ammount   : $  {cartStore.totalPrice}
                       </Item.Description>
                       <Divider  />
-                      <Button content='Process Order'  icon='right arrow' labelPosition='right' color='blue'  disabled={cartStore.totalPrice==0} onClick={()=>{cartStore.createOrder()}} />
+                      <Button content='Process Order'  icon='right arrow' labelPosition='right' color='blue'  disabled={cartStore.totalPrice==0} onClick={()=>{cartStore.createOrder() }} />
 
                     </Item.Content>
                   </Item>

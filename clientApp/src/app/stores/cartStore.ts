@@ -1,17 +1,22 @@
 import { makeAutoObservable } from "mobx";
-import { Cart } from "../models/cart";
+import { CartItem } from "../models/cartItem";
 import { Product } from "../models/product";
 import agent from "../api/agent";
+import User from "../models/user";
+import { Cart } from "../models/cart";
 
 export default class CartStore {
-
-    productsInCart: Cart[] = [];
+    
+    productsInCart: CartItem[] = [];
     totalProducts : number=0;
     totalPrice: number =0;
-
+    user : User
 
     constructor() {
+        this.user = new User(1,8014,"John","Ubaque","alexander80143@gmail.com")
         makeAutoObservable(this)
+       
+
     }
 
     addProductToCart = (product: Product, ammount: number) => {
@@ -20,7 +25,7 @@ export default class CartStore {
         if (existsProduct!=null)      
             existsProduct.quantity+=ammount
         else      
-            this.productsInCart.push(new Cart(product, ammount));
+            this.productsInCart.push(new CartItem(product, ammount));
         this.totalProducts= this.totalProducts +ammount;
         product.stock =  product.stock -ammount;
         product.quantity = 0;
@@ -30,7 +35,7 @@ export default class CartStore {
 
     }
 
-    removeProductFromCart  = (cart: Cart)=>{
+    removeProductFromCart  = (cart: CartItem)=>{
         
         this.productsInCart = this.productsInCart.filter (p=>p !=cart )
         cart.product.stock = cart.product.stock +cart.quantity
@@ -75,7 +80,20 @@ export default class CartStore {
     }
 
     createOrder = ()=>{
-        agent.Orders.create(this.productsInCart)
+
+        var cart = new Cart(this.productsInCart,this.user.id)
+        
+        agent.Orders.create(cart)
+        this.clearCart()
+    }
+
+
+    clearCart = () =>{
+            this.productsInCart  =[];
+            this.totalProducts =0;
+            this.totalPrice=0;
+            localStorage.setItem('cart',JSON.stringify(this) )   
+           
     }
 
 }

@@ -1,5 +1,6 @@
 ﻿using API.Controllers;
 using Application;
+using Application.Orders;
 using Microsoft.AspNetCore.Mvc;
 using Persistence;
 
@@ -16,8 +17,9 @@ public class OrderController:BaseApiController
     }
 
      [HttpPost]
-    public async Task<IActionResult>  CreateOrder(List<CartDto> order){
-        return Ok();
+    public async Task<IActionResult>  CreateOrder( OrderDto order)
+    {
+        return HandleResult(await Mediator.Send(new Create.Command { Order= order }));     
     }
 
 

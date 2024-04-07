@@ -28,7 +28,7 @@ public class Select
         public async Task<Result<PagedList<ProductDto>>> Handle(Query request, CancellationToken cancellationToken)
         {         
             var query  =  _context.Products
-                    .ProjectTo<ProductDto>(_mapper.ConfigurationProvider)
+                    .ProjectTo<ProductDto>(_mapper.ConfigurationProvider).Where(p=>p.stock>0)
                     .AsQueryable();
 
             return Result<PagedList<ProductDto>>.Success(
