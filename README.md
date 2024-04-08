@@ -1,5 +1,8 @@
 # Shopping cart for practice purposes
 
+
+This project was bootstrapped with [Vite](https://vitejs.dev/).
+
 In this repository you will find the implementation of a basic shopping cart using,.net 8.0 as backend framework and react with vite for frontend 
 
 ## Backend libraries
