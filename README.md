@@ -42,14 +42,14 @@ Implement login feature using asp identity.
 
 Implement jwt token validation on each controller endpoint integrated with the login feature.
 
-add a product functionality to upload products and create stock for each product, also upload images (cloudinary or other service) to storage product image
+Add a product functionality to upload products and create stock for each product, also upload images (cloudinary or other service) to storage product image
 Add realtime comunication with signal-r, and some message queue like rabbit, to allow users get updates from server live during order preparation to lock products before taking an order.
 
 CQRS and mediator pattern maybe is not the best option for manage the application and domain, it was implemented just for demo purposes.
 
 
 The ER Diagram could be found int the root foolder asn SHopingCartER.png
-if you want to use SQL scripts to create database and seed it, you can also use DatabaseExport.sql
+If you want to use SQL scripts to create database and seed it, you can also use DatabaseExport.sql
 
 
 
