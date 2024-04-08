@@ -1,7 +1,8 @@
 import { Fragment } from 'react/jsx-runtime'
 import { useStore } from '../../../app/stores/store';
 import { observer } from 'mobx-react-lite';
-import ProductItem from './ProductItem';
+import ProductItem from './productItem';
+
 
 
 export default observer(function ProductList() {

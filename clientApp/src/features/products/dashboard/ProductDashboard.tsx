@@ -5,7 +5,8 @@ import { observer } from 'mobx-react-lite';
 import LoadingComponent from '../../../app/layout/LoadingComponent';
 
 import { PagingParams } from '../../../app/models/pagination';
-import ProductList from './ProductList';
+import ProductList from './productList';
+
 
 
 
