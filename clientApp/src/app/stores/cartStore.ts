@@ -81,7 +81,7 @@ export default class CartStore {
 
     createOrder = ()=>{
 
-        var cart = new Cart(this.productsInCart,this.user.id)
+        var cart = new Cart(this.productsInCart,this.user.id,0,Date.now.toString(),0,0)
         
         agent.Orders.create(cart)
         this.clearCart()

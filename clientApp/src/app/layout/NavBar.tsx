@@ -1,6 +1,6 @@
 
-import { Link, NavLink } from "react-router-dom";
-import { Container, Dropdown, Icon, Label, Menu, Image } from "semantic-ui-react";
+import {  NavLink } from "react-router-dom";
+import { Container, Icon, Label, Menu, Image } from "semantic-ui-react";
 import { useStore } from "../stores/store";
 import { observer } from "mobx-react-lite";
 
@@ -22,7 +22,8 @@ export default observer(function navBar() {
                     <Icon name='product hunt' />
                     Products
                 </Menu.Item>
-                <Menu.Item header as={NavLink} to='/cart'>
+                
+                <Menu.Item header as={NavLink} to='/cart' disabled={totalProducts==0}>
 
                     <Icon name='cart' />
                     Cart

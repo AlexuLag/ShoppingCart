@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useStore } from '../../app/stores/store';
 import { observer } from 'mobx-react-lite';
-import { Button, Grid, GridColumn, GridRow, Header, HeaderContent, HeaderSubheader, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, Image, Label, Segment, Item, Divider, Icon } from "semantic-ui-react";
+import { Grid, GridColumn, Header, HeaderContent, HeaderSubheader, Table, TableBody, TableCell, TableHeader, TableHeaderCell, TableRow, Image, Label, Segment, Icon } from "semantic-ui-react";
 
 
 
@@ -32,16 +32,16 @@ export default observer(function orderDashboard() {
                                 </Label>
                                 <Label as='a' color='blue'>
                                     <Icon name='clock' />
-                                    Date: {order.orderDate} 
-                                 </Label>
-                                 <Label as='a' color='blue' basic>
+                                    Date: {order.orderDate}
+                                </Label>
+                                <Label as='a' color='blue' basic>
                                     <Icon name='clock' />
-                                    Number Of Products: {order.totalProducts} 
-                                 </Label>
-                                 <Label as='a' color='blue' basic>
+                                    Number Of Products: {order.totalProducts}
+                                </Label>
+                                <Label as='a' color='blue' basic>
                                     <Icon name='clock' />
-                                    Total Invoice: $ {order.totalInvoice} 
-                                 </Label>
+                                    Total Invoice: $ {order.totalInvoice}
+                                </Label>
                                 <Table basic='very'   >
                                     <TableHeader>
                                         <TableRow>

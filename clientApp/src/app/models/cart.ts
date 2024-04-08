@@ -18,4 +18,5 @@ export  class Cart {
         this.totalProducts =totalProducts
 
     }
+    
 }

@@ -16,6 +16,7 @@ export const routes: RouteObject[] = [
         path: '/',
         element : <App/>,
         children: [
+            {path: '/', element : <ProductDashboard/>},
             {path: 'products', element : <ProductDashboard/>},
             {path: 'cart', element : <CartDashboard/>},
             {path: 'orders', element : <OrderDashboard/>}
