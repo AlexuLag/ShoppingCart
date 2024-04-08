@@ -36,7 +36,7 @@ inside clientApp  folder run command:
 This project use entity framework migrations for create database objects and seed data.
 you can refer to seed class in Persistence Project to see how migration works
 
-###`TODO:`
+### `TODO:`
 
 Implement login feature using asp identity.
 
