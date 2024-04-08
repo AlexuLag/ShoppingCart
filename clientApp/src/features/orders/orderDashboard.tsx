@@ -5,7 +5,7 @@ import { Grid, GridColumn, Header, HeaderContent, HeaderSubheader, Table, TableB
 
 
 
-export default observer(function orderDashboard() {
+export default observer(function OrderDashboard() {
     const { orderStore, cartStore } = useStore();
 
 

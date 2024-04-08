@@ -4,8 +4,7 @@ import { observer } from 'mobx-react-lite';
 import ProductItem from './ProductItem';
 
 
-
-export default observer(function productList() {
+export default observer(function ProductList() {
 
     const { productStore } = useStore();
     const { products } = productStore;
