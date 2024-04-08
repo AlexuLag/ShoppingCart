@@ -25,18 +25,18 @@ create a blank database with name test, (with more time we can use a docker imag
 
 inside api folder run command:
 
-dotnet run
+### `dotnet run`
 
 inside clientApp  folder run command: 
 
--npm update
--npm run vite
+### `npm update`
+### `npm run vite`
 
 
 This project use entity framework migrations for create database objects and seed data.
 you can refer to seed class in Persistence Project to see how migration works
 
-TODO:
+###TODO:
 
 Implement login feature using asp identity.
 
