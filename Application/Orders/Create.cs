@@ -10,12 +10,12 @@ public class Create
 {
     public class Command : IRequest<Result<Unit>>
     {
-        public  OrderDto Order { get; set; }
-
+        public OrderDto Order { get; set; }
+    }
     public class Handler : IRequestHandler<Command, Result<Unit>>
     {
-         private readonly DataContext _context ;
-        private readonly IMapper _mapper ;
+        private readonly DataContext _context;
+        private readonly IMapper _mapper;
         public Handler(DataContext context, IMapper mapper)
         {
             _context = context;
@@ -35,35 +35,36 @@ public class Create
             };
 
 
-            
-            request.Order.Items.ForEach( x=>{
 
-                    order.OrderDetails.Add (new OrderDetail
-                     {
-                             Order = order,
-                             Quantity = x.Quantity,
-                             TotalPrice = x.Product.UnitPrice*x.Quantity,
-                             Product =  _context.Products.Find(x.Product.Id)
-                    });    
-                    //updates stock status for each product on the order
-                    var productsWithStock = _context.ProductStock.Where(p => p.ProductId == x.Product.Id && 
-                                                                             p.Status.Equals("S") )
-                                                                 .Take(Convert.ToInt32(x.Quantity));
-                        foreach (var item in productsWithStock)
-                        {
-                            item.Status = "O";
-                        }    
-             });
+            request.Order.Items.ForEach(x =>
+            {
 
-             
-             _context.Orders.Add(order);
+                order.OrderDetails.Add(new OrderDetail
+                {
+                    Order = order,
+                    Quantity = x.Quantity,
+                    TotalPrice = x.Product.UnitPrice * x.Quantity,
+                    Product = _context.Products.Find(x.Product.Id)
+                });
+                //updates stock status for each product on the order
+                var productsWithStock = _context.ProductStock.Where(p => p.ProductId == x.Product.Id &&
+                                                                         p.Status.Equals("S"))
+                                                             .Take(Convert.ToInt32(x.Quantity));
+                foreach (var item in productsWithStock)
+                {
+                    item.Status = "O";
+                }
+            });
 
-            var Result  = await _context.SaveChangesAsync() >0;
-              if(!Result) return Result<Unit>.Failure("Failed to create the Order ");
-            return  Result<Unit>.Success(Unit.Value); 
 
-             
+            _context.Orders.Add(order);
+
+            var Result = await _context.SaveChangesAsync() > 0;
+            if (!Result) return Result<Unit>.Failure("Failed to create the Order ");
+            return Result<Unit>.Success(Unit.Value);
+
+
         }
     }
-}
+
 }
